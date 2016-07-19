@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * Sping工具类
+ * Spring工具类
  */
 public class SpringContextUtil implements ApplicationContextAware {
 
