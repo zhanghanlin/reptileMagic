@@ -11,7 +11,7 @@ public class WebContextListener extends ContextLoaderListener {
     public WebApplicationContext initWebApplicationContext(ServletContext servletContext) {
         StringBuilder sb = new StringBuilder();
         sb.append("\r\n======================================================================\r\n");
-        sb.append("\r\n    欢迎使用 WebCollector\r\n");
+        sb.append("\r\n    欢迎使用 WebMagic 爬虫\r\n");
         sb.append("\r\n======================================================================\r\n");
         System.out.println(sb.toString());
         return super.initWebApplicationContext(servletContext);
