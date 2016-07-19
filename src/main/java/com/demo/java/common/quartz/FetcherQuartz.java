@@ -11,7 +11,7 @@ import us.codecraft.webmagic.Spider;
  */
 public class FetcherQuartz {
 
-    RegexService regexService = (RegexService) SpringContextUtil.getBean("regexService");
+    RegexService regexService = SpringContextUtil.getBean("regexService", RegexService.class);
 
     /**
      * 根据配置的规则ID进行抓取

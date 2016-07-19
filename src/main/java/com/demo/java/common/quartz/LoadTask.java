@@ -16,7 +16,7 @@ public class LoadTask {
 
     final static Logger LOG = LoggerFactory.getLogger(LoadTask.class);
 
-    TaskService taskService = (TaskService) SpringContextUtil.getBean("taskService");
+    TaskService taskService = SpringContextUtil.getBean("taskService", TaskService.class);
 
     public void initTask() throws SchedulerException {
         List<Task> list = taskService.list();

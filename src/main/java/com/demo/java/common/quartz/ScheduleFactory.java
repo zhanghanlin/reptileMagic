@@ -20,9 +20,9 @@ public class ScheduleFactory {
 
     final static Logger LOG = LoggerFactory.getLogger(ScheduleFactory.class);
 
-    StdScheduler scheduler = (StdScheduler) SpringContextUtil.getBean("schedulerFactoryBean");
+    StdScheduler scheduler = SpringContextUtil.getBean("schedulerFactoryBean", StdScheduler.class);
 
-    TaskService taskService = (TaskService) SpringContextUtil.getBean("taskService");
+    TaskService taskService = SpringContextUtil.getBean("taskService", TaskService.class);
 
     private static ScheduleFactory scheduleFactory = new ScheduleFactory();
 
