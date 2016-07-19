@@ -21,7 +21,7 @@ import java.util.List;
 @RequestMapping("quartz")
 public class QuartzController {
 
-    ScheduleFactory scheduleFactory = new ScheduleFactory();
+    ScheduleFactory scheduleFactory = ScheduleFactory.getInstance();
 
     @Resource
     TaskService jobService;

@@ -1,11 +1,10 @@
 package com.demo.java.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.java.common.utils.ReflectUtils;
 import com.demo.java.model.Car;
 import com.demo.java.model.Regex;
 import com.demo.java.service.RegexService;
-import com.demo.java.common.utils.CollectorDisc;
-import com.demo.java.common.utils.ReflectUtils;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -33,12 +33,12 @@ public class RegexController {
             regex = regexService.get(id);
             data = regex.getJSONData();
         }
-        List<String> list = ReflectUtils.getFields(Car.class);
-        for (String s : list) {
-            JSONObject object = data.getJSONObject(s);
+        Map<String, String> map = ReflectUtils.field2Map(Car.class);
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            JSONObject object = data.getJSONObject(entry.getKey());
             if (object == null) object = new JSONObject();
-            object.put("name", CollectorDisc.map.get(s));
-            data.put(s, object);
+            object.put("name", entry.getValue());
+            data.put(entry.getKey(), object);
         }
         modelAndView.addObject("regex", regex);
         modelAndView.addObject("data", data);

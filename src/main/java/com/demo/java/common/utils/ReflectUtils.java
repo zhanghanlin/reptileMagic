@@ -1,12 +1,11 @@
 package com.demo.java.common.utils;
 
 import com.demo.java.common.annotation.Ignore;
+import com.demo.java.common.annotation.Mapping;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ReflectUtils {
 
@@ -25,19 +24,24 @@ public class ReflectUtils {
         return list;
     }
 
-    public static List<String> getFields(Class clz) {
-        List<String> list = new ArrayList<>();
+    public static Map<String, String> field2Map(Class clz) {
+        Map<String, String> map = new HashMap();
         for (Field field : fields(clz)) {
             if (field.isAnnotationPresent(Ignore.class)) {
                 continue;
             }
-            list.add(field.getName());
+            String mapVal = field.getName();
+            if (field.isAnnotationPresent(Mapping.class)) {
+                mapVal = field.getAnnotation(Mapping.class).name();
+            }
+            map.put(field.getName(), mapVal);
         }
-        return list;
+        return map;
     }
 
     /**
      * 获取Class下的所有方法
+     *
      * @param clz
      * @return
      */

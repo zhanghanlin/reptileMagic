@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * 项目启动加载已存在的定时任务
+ */
 public class LoadTask {
 
     final static Logger LOG = LoggerFactory.getLogger(LoadTask.class);
@@ -19,7 +22,7 @@ public class LoadTask {
         List<Task> list = taskService.list();
         if (list == null || list.isEmpty()) return;
         LOG.info("LoadTask initTask Task Size : {}", list.size());
-        ScheduleFactory scheduleFactory = new ScheduleFactory();
+        ScheduleFactory scheduleFactory = ScheduleFactory.getInstance();
         for (Task task : list) {
             LOG.info("LoadTask initTask createJob {}", task.getTriggerKey());
             scheduleFactory.createJob(task);

@@ -1,6 +1,7 @@
 package com.demo.java.model;
 
 import com.demo.java.common.annotation.Ignore;
+import com.demo.java.common.annotation.Mapping;
 
 import java.util.Date;
 
@@ -9,16 +10,27 @@ import static com.demo.java.common.utils.Config.STRING_EMPTY;
 public class Car {
     @Ignore
     private String id;  //Id
+    @Mapping(name = "名称")
     private String carName; //名称
+    @Mapping(name = "价格")
     private String price;   //价格 单位万
+    @Mapping(name = "上牌时间")
     private String onTime;  //上牌时间
+    @Mapping(name = "里程数")
     private String mileage; //里程数
+    @Mapping(name = "变速箱类型")
     private String speedCase;   //变速箱类型
+    @Mapping(name = "年检到期")
     private String inspectExpire;// 年检到期
+    @Mapping(name = "保险到期")
     private String safeExpire;  //保险到期
+    @Mapping(name = "事故")
     private String accident;    //事故
+    @Mapping(name = "联系热")
     private String userName;    //联系人
+    @Mapping(name = "电话")
     private String phone;   //联系方式
+    @Mapping(name = "地址")
     private String address; //地址
 
     @Ignore

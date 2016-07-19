@@ -11,6 +11,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
+import static com.demo.java.common.utils.Config.JOB_DATA_KEY;
+
+/**
+ * Job相关方法
+ */
 public class ScheduleFactory {
 
     final static Logger LOG = LoggerFactory.getLogger(ScheduleFactory.class);
@@ -19,13 +24,29 @@ public class ScheduleFactory {
 
     TaskService taskService = (TaskService) SpringContextUtil.getBean("taskService");
 
+    private static ScheduleFactory scheduleFactory = new ScheduleFactory();
+
+    private ScheduleFactory() {
+
+    }
+
+    public static ScheduleFactory getInstance() {
+        return scheduleFactory;
+    }
+
+    /**
+     * 创建一个job
+     *
+     * @param task
+     * @throws SchedulerException
+     */
     public void createJob(Task task) throws SchedulerException {
         TriggerKey triggerKey = TriggerKey.triggerKey(task.getName(), task.getTaskGroup());
         CronTrigger trigger = (CronTrigger) scheduler.getTrigger(triggerKey);
         // 不存在，创建一个
         if (null == trigger) {
             JobDetail jobDetail = JobBuilder.newJob(QuartzJobFactory.class).withIdentity(task.getName(), task.getTaskGroup()).build();
-            jobDetail.getJobDataMap().put("scheduleJob", task);
+            jobDetail.getJobDataMap().put(JOB_DATA_KEY, task);
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(task.getCronExpression());
             trigger = TriggerBuilder.newTrigger().withIdentity(task.getName(), task.getTaskGroup()).withSchedule(scheduleBuilder).build();
             scheduler.scheduleJob(jobDetail, trigger);
@@ -40,7 +61,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 添加任务
+     * 添加一个job并写入DB
      *
      * @param task
      * @throws SchedulerException
@@ -55,7 +76,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 获取所有计划中的任务列表
+     * 获取所有计划中的job列表
      *
      * @return
      * @throws SchedulerException
