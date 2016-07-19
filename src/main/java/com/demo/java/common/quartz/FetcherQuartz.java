@@ -22,7 +22,6 @@ public class FetcherQuartz {
         try {
             Regex regex = regexService.get(id);
             Spider spider = CarProcessor.getSpider(regex);
-//            SpiderMonitor.instance().register(spider);
             spider.start();
         } catch (Exception e) {
             e.printStackTrace();

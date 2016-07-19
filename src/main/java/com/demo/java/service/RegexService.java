@@ -29,7 +29,7 @@ public class RegexService {
         return regexDao.list();
     }
 
-    public int remove(String id) {
-        return regexDao.remove(id);
+    public int delete(String id) {
+        return regexDao.delete(id);
     }
 }

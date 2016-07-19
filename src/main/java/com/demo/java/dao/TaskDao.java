@@ -9,11 +9,12 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Repository
-public class TaskDao {
+public class TaskDao extends AbstractDao<Task> {
 
     @Resource
     JdbcTemplate jdbcTemplate;
 
+    @Override
     public Task get(String id) {
         String sql = "SELECT * FROM TASK WHERE ID = ?";
         List<Task> list = jdbcTemplate.query(sql, new Object[]{id}, BeanPropertyRowMapper.newInstance(Task.class));
@@ -22,22 +23,7 @@ public class TaskDao {
         return list.get(0);
     }
 
-    public List<Task> list() {
-        String sql = "SELECT * FROM TASK";
-        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Task.class));
-    }
-
-    public int delete(String id) {
-        String sql = "DELETE FROM TASK WHERE ID = ?";
-        return jdbcTemplate.update(sql, new Object[]{id});
-    }
-
-    /**
-     * 保存
-     *
-     * @param task
-     * @return
-     */
+    @Override
     public int save(Task task) {
         String insert_sql = "INSERT INTO TASK(id,name,task_group,status," +
                 "cron_expression,description,bean_class,method_name,method_param)" +
@@ -53,5 +39,21 @@ public class TaskDao {
                 task.getMethodName(),
                 task.getMethodParam()
         });
+    }
+
+    @Override
+    public List<Task> list() {
+        String sql = "SELECT * FROM TASK";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Task.class));
+    }
+
+    @Override
+    int update(Task task) {
+        return 0;
+    }
+
+    public int delete(String id) {
+        String sql = "DELETE FROM TASK WHERE ID = ?";
+        return jdbcTemplate.update(sql, new Object[]{id});
     }
 }

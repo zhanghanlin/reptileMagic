@@ -8,12 +8,16 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * 车源Dao
+ */
 @Repository
-public class CarDao {
+public class CarDao extends AbstractDao<Car> {
 
     @Resource
     JdbcTemplate jdbcTemplate;
 
+    @Override
     public Car get(String id) {
         String sql = "SELECT * FROM CAR WHERE ID = ?";
         List<Car> list = jdbcTemplate.query(sql, new Object[]{id}, BeanPropertyRowMapper.newInstance(Car.class));
@@ -22,39 +26,7 @@ public class CarDao {
         return list.get(0);
     }
 
-    /**
-     * 更新
-     *
-     * @param car
-     * @return
-     */
-    public int update(Car car) {
-        String update_sql = "UPDATE CAR SET car_name=?,price=?,on_time=?," +
-                "mileage=?,speed_case=?,inspect_expire=?,safe_expire=?,accident=?," +
-                "user_name=?,phone=?,url=?,address=?,source=?,update_time=NOW() WHERE id=?";
-        return jdbcTemplate.update(update_sql, new Object[]{car.getCarName(),
-                car.getPrice(),
-                car.getOnTime(),
-                car.getMileage(),
-                car.getSpeedCase(),
-                car.getInspectExpire(),
-                car.getSafeExpire(),
-                car.getAccident(),
-                car.getUserName(),
-                car.getPhone(),
-                car.getUrl(),
-                car.getAddress(),
-                car.getSource(),
-                car.getId()
-        });
-    }
-
-    /**
-     * 保存
-     *
-     * @param car
-     * @return
-     */
+    @Override
     public int save(Car car) {
         String insert_sql = "INSERT INTO CAR(id,car_name,price,on_time," +
                 "mileage,speed_case,inspect_expire,safe_expire,accident,user_name,phone,url,address,source)" +
@@ -76,6 +48,29 @@ public class CarDao {
         });
     }
 
+    @Override
+    public int update(Car car) {
+        String update_sql = "UPDATE CAR SET car_name=?,price=?,on_time=?," +
+                "mileage=?,speed_case=?,inspect_expire=?,safe_expire=?,accident=?," +
+                "user_name=?,phone=?,url=?,address=?,source=?,update_time=NOW() WHERE id=?";
+        return jdbcTemplate.update(update_sql, new Object[]{car.getCarName(),
+                car.getPrice(),
+                car.getOnTime(),
+                car.getMileage(),
+                car.getSpeedCase(),
+                car.getInspectExpire(),
+                car.getSafeExpire(),
+                car.getAccident(),
+                car.getUserName(),
+                car.getPhone(),
+                car.getUrl(),
+                car.getAddress(),
+                car.getSource(),
+                car.getId()
+        });
+    }
+
+    @Override
     public List<Car> list() {
         return jdbcTemplate.query("SELECT * FROM CAR", BeanPropertyRowMapper.newInstance(Car.class));
     }

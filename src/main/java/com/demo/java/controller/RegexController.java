@@ -33,7 +33,7 @@ public class RegexController {
             regex = regexService.get(id);
             data = regex.getJSONData();
         }
-        Map<String, String> map = ReflectUtils.field2Map(Car.class);
+        Map<String, String> map = ReflectUtils.getFieldMap(Car.class);
         for (Map.Entry<String, String> entry : map.entrySet()) {
             JSONObject object = data.getJSONObject(entry.getKey());
             if (object == null) object = new JSONObject();
@@ -48,7 +48,7 @@ public class RegexController {
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable String id) {
         try {
-            regexService.remove(id);
+            regexService.delete(id);
         } catch (Exception e) {
             e.printStackTrace();
         }

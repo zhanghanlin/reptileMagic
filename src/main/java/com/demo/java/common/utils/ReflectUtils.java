@@ -7,6 +7,9 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ * 反射工具类
+ */
 public class ReflectUtils {
 
     /**
@@ -24,7 +27,12 @@ public class ReflectUtils {
         return list;
     }
 
-    public static Map<String, String> field2Map(Class clz) {
+    /**
+     * 获取字段名和MappingName的Map
+     * @param clz
+     * @return
+     */
+    public static Map<String, String> getFieldMap(Class clz) {
         Map<String, String> map = new HashMap();
         for (Field field : fields(clz)) {
             if (field.isAnnotationPresent(Ignore.class)) {

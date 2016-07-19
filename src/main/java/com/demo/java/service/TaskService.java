@@ -16,13 +16,13 @@ public class TaskService {
     @Resource
     TaskDao taskDao;
 
+    public Task get(String id) {
+        return taskDao.get(id);
+    }
+
     public int save(Task job) {
         job.setId(UUID.randomUUID().toString().replace("-", ""));
         return taskDao.save(job);
-    }
-
-    public Task get(String id) {
-        return taskDao.get(id);
     }
 
     public List<Task> list() {

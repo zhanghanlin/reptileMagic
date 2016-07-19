@@ -18,6 +18,10 @@ public class CarService {
         return carDao.get(id);
     }
 
+    public int save(Car car) {
+        return carDao.save(car);
+    }
+
     public List<Car> list() {
         return carDao.list();
     }
@@ -28,10 +32,6 @@ public class CarService {
         } else {
             return carDao.save(car);
         }
-    }
-
-    public int save(Car car) {
-        return carDao.save(car);
     }
 
     public TablePage<Car> listByPage(int start, int size) {

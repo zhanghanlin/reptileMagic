@@ -26,6 +26,9 @@ public class ScheduleFactory {
 
     private static ScheduleFactory scheduleFactory = new ScheduleFactory();
 
+    /**
+     * Singleton
+     */
     private ScheduleFactory() {
 
     }

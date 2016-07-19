@@ -1,7 +1,7 @@
 package com.demo.java.common.utils;
 
 /**
- * 全局配置
+ * 全局常量配置
  */
 public interface Config {
 

@@ -8,12 +8,16 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * 抓取规则Dao
+ */
 @Repository
-public class RegexDao {
+public class RegexDao extends AbstractDao<Regex> {
 
     @Resource
     JdbcTemplate jdbcTemplate;
 
+    @Override
     public Regex get(String id) {
         String sql = "SELECT * FROM REGEX WHERE ID = ?";
         List<Regex> list = jdbcTemplate.query(sql, new Object[]{id}, BeanPropertyRowMapper.newInstance(Regex.class));
@@ -22,6 +26,7 @@ public class RegexDao {
         return list.get(0);
     }
 
+    @Override
     public int save(Regex regex) {
         String sql = "INSERT INTO REGEX (id, name, url, list_regex," +
                 "detail_regex, thread, ignore_key, data, task_key, is_data,retry_time,cycle_retry_time,sleep_time)" +
@@ -42,6 +47,7 @@ public class RegexDao {
         });
     }
 
+    @Override
     public int update(Regex regex) {
         String sql = "UPDATE REGEX " +
                 "SET name       = ?, url = ?, list_regex = ?," +
@@ -66,12 +72,13 @@ public class RegexDao {
         });
     }
 
+    @Override
     public List<Regex> list() {
         String sql = "SELECT * FROM REGEX";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Regex.class));
     }
 
-    public int remove(String id) {
+    public int delete(String id) {
         String sql = "DELETE FROM REGEX WHERE ID = ?";
         return jdbcTemplate.update(sql, new Object[]{id});
     }
