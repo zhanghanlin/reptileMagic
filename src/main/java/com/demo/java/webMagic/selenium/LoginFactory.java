@@ -1,4 +1,4 @@
-package com.demo.java.webMagic;
+package com.demo.java.webMagic.selenium;
 
 import com.demo.java.model.LoginModel;
 import org.apache.commons.logging.LogFactory;

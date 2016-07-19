@@ -1,10 +1,11 @@
-package com.demo.java.webMagic;
+package com.demo.java.webMagic.processor;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.java.common.utils.PatternUtils;
 import com.demo.java.model.Car;
 import com.demo.java.model.Regex;
+import com.demo.java.webMagic.pipeline.CarPipeline;
 import org.apache.commons.lang3.StringUtils;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;

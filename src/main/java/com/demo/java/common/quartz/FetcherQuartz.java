@@ -3,7 +3,7 @@ package com.demo.java.common.quartz;
 import com.demo.java.common.utils.SpringContextUtil;
 import com.demo.java.model.Regex;
 import com.demo.java.service.RegexService;
-import com.demo.java.webMagic.CarProcessor;
+import com.demo.java.webMagic.processor.CarProcessor;
 import us.codecraft.webmagic.Spider;
 
 /**

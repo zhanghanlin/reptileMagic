@@ -2,7 +2,7 @@ package com.demo.java.controller;
 
 import com.demo.java.model.Regex;
 import com.demo.java.service.RegexService;
-import com.demo.java.webMagic.CarProcessor;
+import com.demo.java.webMagic.processor.CarProcessor;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

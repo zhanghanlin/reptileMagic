@@ -1,4 +1,4 @@
-package com.demo.java.webMagic;
+package com.demo.java.webMagic.pipeline;
 
 import com.demo.java.common.utils.SpringContextUtil;
 import com.demo.java.model.Car;
