@@ -5,7 +5,6 @@ import org.openqa.selenium.Cookie;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
-import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.List;
@@ -67,10 +66,7 @@ public class CarLoginProcessor implements PageProcessor {
         model.setPasswordInput("password_new");
         model.setUserName("username");
         model.setPassword("password");
-        Spider spider = Spider.create(new CarLoginProcessor(model));
-        spider.addPipeline(new ConsolePipeline());
-        spider.addUrl("http://my.58.com/infoall?sys=my");
-        spider.thread(5);
+        Spider spider = CarLoginProcessor.getSpider("http://my.58.com/infoall?sys=my", 5, model);
         spider.start();
     }
 }
