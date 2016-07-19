@@ -1,3 +1,3 @@
 # reptileMagic
 
-基于reptileMagic的爬虫
+基于webMagic的爬虫
