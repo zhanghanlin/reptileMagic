@@ -82,15 +82,16 @@
     $('.fetcher').click(function () {
         var id = $(this).parents('tr').attr('id');
         var action = $(this).attr('action');
-        if (action == 'start') {
-            alert('后台爬取开始...');
-        }
         $.ajax({
             url: '/fetcher/' + action + '/' + id,
             type: 'GET',
             dataType: 'text',
             success: function (msg) {
-                if (msg) alert(msg);
+                if (action == 'start') {
+                    alert('后台爬取开始...');
+                } else if (msg) {
+                    alert(msg);
+                }
             }
         });
     });

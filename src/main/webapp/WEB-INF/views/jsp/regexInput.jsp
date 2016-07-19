@@ -57,43 +57,40 @@
                 <div class="form-group">
                     <label for="listRegex" class="col-sm-2 control-label">列表页地址正则</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.listRegex}" name="listRegex" id="listRegex"
+                        <input type="text" class="form-control" value="${regex.listRegex}" name="listRegex"
+                               id="listRegex"
                                placeholder="regex">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="detailRegex" class="col-sm-2 control-label">详情页地址正则</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.detailRegex}" name="detailRegex" id="detailRegex"
+                        <input type="text" class="form-control" value="${regex.detailRegex}" name="detailRegex"
+                               id="detailRegex"
                                placeholder="regex">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="thread" class="col-sm-2 control-label">线程数量</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.thread}" style="width: 200px"
-                               name="thread" id="thread" placeholder="thread">
+                    <label class="col-sm-2 control-label">爬虫配置</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" value="${regex.thread}"
+                               name="thread" id="thread" placeholder="线程数"
+                               data-toggle="tooltip" data-placement="bottom" title="线程数"/>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="retryTime" class="col-sm-2 control-label">重试次数</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.retryTime}" style="width: 200px"
-                               name="retryTime" id="retryTime" placeholder="retryTime">
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" value="${regex.retryTime}"
+                               name="retryTime" id="retryTime" placeholder="重试次数"
+                               data-toggle="tooltip" data-placement="bottom" title="重试次数"/>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="cycleRetryTime" class="col-sm-2 control-label">循环重试次数</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.cycleRetryTime}" style="width: 200px"
-                               name="cycleRetryTime" id="cycleRetryTime" placeholder="cycleRetryTime">
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" value="${regex.cycleRetryTime}"
+                               name="cycleRetryTime" id="cycleRetryTime" placeholder="循环重试次数"
+                               data-toggle="tooltip" data-placement="bottom" title="循环重试次数"/>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="sleepTime" class="col-sm-2 control-label">抓取间隔</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" value="${regex.sleepTime}" style="width: 200px"
-                               name="sleepTime" id="sleepTime" placeholder="sleepTime">
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" value="${regex.sleepTime}"
+                               name="sleepTime" id="sleepTime" placeholder="抓取间隔"
+                               data-toggle="tooltip" data-placement="bottom" title="抓取间隔"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -180,6 +177,7 @@
 <script src="/js/bootstrap/bootstrap.min.js"></script>
 <script src="/js/ie/ie10-viewport-bug-workaround.js"></script>
 <script>
+    $('[data-toggle="tooltip"]').tooltip();
     $(".form-horizontal").submit(function () {
         if ($('#isData').val() * 1 == 0) {
             return true;
@@ -212,7 +210,14 @@
         } else {
             $('#data_panel').hide();
         }
-    })
+    });
+    $('#isLogin').change(function () {
+        if ($(this).val() * 1 == 1) {
+            $('#login_panel').show();
+        } else {
+            $('#login_panel').hide();
+        }
+    });
 </script>
 </body>
 </html>

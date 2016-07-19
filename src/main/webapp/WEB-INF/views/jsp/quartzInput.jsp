@@ -81,25 +81,29 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">cron表达式</label>
                     <input type="hidden" id="cronExpression" name="cronExpression"/>
-                    <div class="col-sm-10">
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="*"/>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="*"/>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="*"/>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="*"/>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="*"/>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" class="form-control cron" value="?"/>
-                        </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="*"
+                               data-toggle="tooltip" data-placement="bottom" title="秒"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="*"
+                               data-toggle="tooltip" data-placement="bottom" title="分"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="*"
+                               data-toggle="tooltip" data-placement="bottom" title="时"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="*"
+                               data-toggle="tooltip" data-placement="bottom" title="日"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="*"
+                               data-toggle="tooltip" data-placement="bottom" title="月"/>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control cron" value="?"
+                               data-toggle="tooltip" data-placement="bottom" title="年"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -115,6 +119,7 @@
 <script src="/js/bootstrap/bootstrap.min.js"></script>
 <script src="/js/ie/ie10-viewport-bug-workaround.js"></script>
 <script>
+    $('[data-toggle="tooltip"]').tooltip();
     $(".form-horizontal").submit(function () {
         $('#cronExpression').val($('input.cron').map(function () {
             return $(this).val();
