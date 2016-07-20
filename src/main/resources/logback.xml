@@ -22,6 +22,12 @@
     <logger name="com.demo.java">
         <level value="INFO"/>
     </logger>
+    <logger name="org.mybatis.spring">
+        <level value="INFO"/>
+    </logger>
+    <logger name="org.apache.ibatis">
+        <level value="INFO"/>
+    </logger>
     <logger name="org.apache.http.client.protocol.ResponseProcessCookies">
         <level value="ERROR"/>
     </logger>
