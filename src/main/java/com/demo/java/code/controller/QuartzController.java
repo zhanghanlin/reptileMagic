@@ -1,10 +1,10 @@
-package com.demo.java.base.controller;
+package com.demo.java.code.controller;
 
 import com.demo.java.common.quartz.FetcherQuartz;
 import com.demo.java.common.quartz.ScheduleFactory;
 import com.demo.java.common.utils.ReflectUtils;
-import com.demo.java.base.entity.Task;
-import com.demo.java.base.service.TaskService;
+import com.demo.java.code.entity.Task;
+import com.demo.java.code.service.TaskService;
 import org.quartz.SchedulerException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -35,11 +34,9 @@ public class QuartzController {
     }
 
     @RequestMapping("save")
-    public String save(Task job) {
+    public String save(Task task) {
         try {
-            job.setUpdateTime(new Date());
-            job.setCreateTime(new Date());
-            scheduleFactory.addJob(job);
+            scheduleFactory.addJob(task);
         } catch (SchedulerException e) {
             e.printStackTrace();
         }

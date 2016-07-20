@@ -1,6 +1,6 @@
 package com.demo.java.common.quartz;
 
-import com.demo.java.base.entity.Task;
+import com.demo.java.code.entity.Task;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;

@@ -1,13 +1,13 @@
-package com.demo.java.base.entity;
+package com.demo.java.code.entity;
 
+import com.demo.java.code.base.BaseEntity;
 import com.demo.java.common.annotation.Ignore;
 import com.demo.java.common.annotation.Mapping;
 
-import java.util.Date;
+public class Car extends BaseEntity {
 
-public class Car {
-    @Ignore
-    private String id;
+    private static final long serialVersionUID = 7084703935188104849L;
+
     @Mapping(name = "名称")
     private String carName;
     @Mapping(name = "价格")
@@ -28,16 +28,11 @@ public class Car {
     private String userName;
     @Mapping(name = "电话")
     private String phone;
-    @Ignore
-    private Date createTime;
-
     /**
      * 原始URL
      */
     @Ignore
     private String url;
-    @Ignore
-    private Date updateTime;
     @Mapping(name = "地址")
     private String address;
 
@@ -46,14 +41,6 @@ public class Car {
      */
     @Ignore
     private String source;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getCarName() {
         return carName;
@@ -135,28 +122,12 @@ public class Car {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getAddress() {

@@ -1,12 +1,13 @@
-package com.demo.java.base.service;
+package com.demo.java.code.service;
 
-import com.demo.java.base.dao.RegexMapper;
-import com.demo.java.base.entity.Regex;
+import com.demo.java.code.dao.RegexMapper;
+import com.demo.java.code.entity.Regex;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class RegexService {
@@ -19,6 +20,7 @@ public class RegexService {
     }
 
     public int insert(Regex regex) throws Exception {
+        regex.setId(UUID.randomUUID().toString().replace("-", ""));
         return regexMapper.insert(regex);
     }
 

@@ -87,11 +87,7 @@
             type: 'GET',
             dataType: 'text',
             success: function (msg) {
-                if (action == 'start') {
-                    alert('后台爬取开始...');
-                } else if (msg) {
-                    alert(msg);
-                }
+                alert(msg);
             }
         });
     });

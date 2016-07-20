@@ -1,6 +1,6 @@
-package com.demo.java.base.dao;
+package com.demo.java.code.dao;
 
-import com.demo.java.base.entity.Car;
+import com.demo.java.code.entity.Car;
 
 import java.util.List;
 

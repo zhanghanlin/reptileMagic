@@ -1,10 +1,14 @@
-package com.demo.java.base.entity;
+package com.demo.java.code.entity;
+
+import com.demo.java.code.base.BaseEntity;
 
 import java.util.Date;
 
-public class Task {
+public class Task extends BaseEntity {
+
+    private static final long serialVersionUID = 4395028772066524093L;
+
     public static final String STATUS_RUNNING = "1";
-    private String id;
 
     /**
      * 任务名称
@@ -45,18 +49,6 @@ public class Task {
      * 任务调用的方法名
      */
     private String methodName;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getName() {
         return name;
@@ -120,22 +112,6 @@ public class Task {
 
     public void setMethodName(String methodName) {
         this.methodName = methodName == null ? null : methodName.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getTriggerKey() {

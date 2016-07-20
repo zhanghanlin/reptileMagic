@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="com.demo.java.base.entity"
+        <javaModelGenerator targetPackage="com.demo.java.code.entity"
                             targetProject="${project.src}">
             <property name="enableSubPackages" value="false"/>
             <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
@@ -38,7 +38,7 @@
         </sqlMapGenerator>
 
         <!-- 生成mapxml对应client，也就是接口dao -->
-        <javaClientGenerator targetPackage="com.demo.java.base.dao"
+        <javaClientGenerator targetPackage="com.demo.java.code.dao"
                              targetProject="${project.src}" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>

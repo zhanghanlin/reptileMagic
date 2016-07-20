@@ -1,11 +1,14 @@
-package com.demo.java.base.entity;
+package com.demo.java.code.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.java.code.base.BaseEntity;
 
-import java.util.Date;
+/**
+ * 抓取任务规则Bean
+ */
+public class Regex extends BaseEntity {
 
-public class Regex {
-    private String id;
+    private static final long serialVersionUID = 4251669716871559150L;
 
     /**
      * 规则名称
@@ -52,10 +55,6 @@ public class Regex {
      */
     private Integer isData;
 
-    private Date createTime;
-
-    private Date updateTime;
-
     /**
      * 重试次数
      */
@@ -72,14 +71,6 @@ public class Regex {
      * 抓取间隔
      */
     private Integer sleepTime;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
     public String getName() {
         return name;
@@ -151,22 +142,6 @@ public class Regex {
 
     public void setIsData(Integer isData) {
         this.isData = isData;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public Integer getRetryTime() {

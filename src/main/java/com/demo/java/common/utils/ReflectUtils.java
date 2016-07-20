@@ -5,6 +5,7 @@ import com.demo.java.common.annotation.Mapping;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.*;
 
 /**
@@ -19,7 +20,7 @@ public class ReflectUtils {
      * @return
      */
     private static List<Field> fields(Class clz) {
-        List<Field> list = new ArrayList<Field>();
+        List<Field> list = new ArrayList<>();
         list.addAll(Arrays.asList(clz.getDeclaredFields()));
         if (clz.getGenericSuperclass() != null) {
             list.addAll(Arrays.asList(clz.getSuperclass().getDeclaredFields()));
@@ -29,12 +30,17 @@ public class ReflectUtils {
 
     /**
      * 获取字段名和MappingName的Map
+     *
      * @param clz
      * @return
      */
     public static Map<String, String> getFieldMap(Class clz) {
         Map<String, String> map = new HashMap();
         for (Field field : fields(clz)) {
+            //过滤静态字段
+            if (Modifier.isStatic(field.getModifiers())) {
+                continue;
+            }
             if (field.isAnnotationPresent(Ignore.class)) {
                 continue;
             }

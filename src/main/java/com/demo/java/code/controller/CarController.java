@@ -1,8 +1,8 @@
-package com.demo.java.base.controller;
+package com.demo.java.code.controller;
 
 import com.demo.java.common.vo.TablePage;
-import com.demo.java.base.entity.Car;
-import com.demo.java.base.service.CarService;
+import com.demo.java.code.entity.Car;
+import com.demo.java.code.service.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,8 +24,7 @@ public class CarController {
 
     @RequestMapping("/list")
     public ModelAndView list() {
-        ModelAndView modelAndView = new ModelAndView("carList");
-        return modelAndView;
+        return new ModelAndView("carList");
     }
 
     @RequestMapping("/api/list")

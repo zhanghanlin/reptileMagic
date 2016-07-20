@@ -1,7 +1,7 @@
-package com.demo.java.base.controller;
+package com.demo.java.code.controller;
 
-import com.demo.java.base.entity.Regex;
-import com.demo.java.base.service.RegexService;
+import com.demo.java.code.entity.Regex;
+import com.demo.java.code.service.RegexService;
 import com.demo.java.webMagic.processor.CarProcessor;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
@@ -24,7 +24,7 @@ public class FetcherController {
 
     @RequestMapping("/start/{id}")
     @ResponseBody
-    public void fetcherStart(@PathVariable String id) {
+    public String fetcherStart(@PathVariable String id) {
         Regex regex = regexService.get(id);
         try {
             Spider spider = CarProcessor.getSpider(regex);
@@ -33,6 +33,7 @@ public class FetcherController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return "后台爬取中...";
     }
 
     @RequestMapping("/stop/{id}")
