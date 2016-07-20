@@ -5,6 +5,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.ServletContext;
 
+/**
+ * 启动Web容器时,自动装配ApplicationContext的配置信息
+ */
 public class WebContextListener extends ContextLoaderListener {
 
     @Override

@@ -14,15 +14,15 @@ import java.util.*;
 import static com.demo.java.common.Config.JOB_DATA_KEY;
 
 /**
- * Job相关方法
+ * Task相关方法
  */
 public class ScheduleFactory {
 
     final static Logger LOG = LoggerFactory.getLogger(ScheduleFactory.class);
 
-    StdScheduler scheduler = SpringContextUtil.getBean("schedulerFactoryBean", StdScheduler.class);
+    StdScheduler scheduler = SpringContextUtil.getBean("schedulerFactoryBean");
 
-    TaskService taskService = SpringContextUtil.getBean("taskService", TaskService.class);
+    TaskService taskService = SpringContextUtil.getBean("taskService");
 
     private static ScheduleFactory scheduleFactory = new ScheduleFactory();
 
@@ -38,7 +38,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 创建一个job
+     * 创建一个Task
      *
      * @param task
      * @throws SchedulerException
@@ -64,7 +64,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 添加一个job并写入DB
+     * 添加一个Task并写入DB
      *
      * @param task
      * @throws SchedulerException
@@ -79,7 +79,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 获取所有计划中的job列表
+     * 获取所有计划中的Task列表
      *
      * @return
      * @throws SchedulerException
@@ -106,7 +106,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 所有正在运行的job
+     * 所有正在运行的Task
      *
      * @return
      * @throws SchedulerException
@@ -135,7 +135,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 暂停一个job
+     * 暂停一个Task
      *
      * @param task
      * @throws SchedulerException
@@ -146,7 +146,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 恢复一个job
+     * 恢复一个Task
      *
      * @param task
      * @throws SchedulerException
@@ -157,7 +157,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 删除一个job
+     * 删除一个Task
      *
      * @param task
      * @throws SchedulerException
@@ -169,7 +169,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 立即执行job
+     * 立即执行Task
      *
      * @param task
      * @throws SchedulerException
@@ -180,7 +180,7 @@ public class ScheduleFactory {
     }
 
     /**
-     * 更新job时间表达式
+     * 更新Task时间表达式
      *
      * @param task
      * @throws SchedulerException

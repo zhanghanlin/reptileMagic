@@ -10,6 +10,9 @@ public interface Config {
      */
     String STRING_EMPTY = "";
 
+    /**
+     * 默认编码
+     */
     String DEFAULT_ENCODE = "UTF-8";
 
     /**

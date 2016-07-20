@@ -4,6 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * 用于防止XSS攻击
+ */
 public class XSSFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

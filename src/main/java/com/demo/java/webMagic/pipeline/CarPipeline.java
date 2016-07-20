@@ -14,7 +14,7 @@ import static com.demo.java.common.Config.MAGIC_PAGE_KEY;
  */
 public class CarPipeline implements Pipeline {
 
-    CarService carService = SpringContextUtil.getBean("carService", CarService.class);
+    CarService carService = SpringContextUtil.getBean("carService");
 
     @Override
     public void process(ResultItems resultItems, Task task) {

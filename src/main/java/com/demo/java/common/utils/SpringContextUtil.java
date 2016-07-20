@@ -22,25 +22,14 @@ public class SpringContextUtil implements ApplicationContextAware {
 
     /**
      * 获取spring配置的bean
-     * SpringContextUtil.getBean()
      *
-     * @param beanName bean名称
-     * @return
-     */
-    public static Object getBean(String beanName) {
-        if (getApplicationContext() == null)
-            return null;
-        return getApplicationContext().getBean(beanName);
-    }
-
-    /**
-     * 获取spring配置的bean
      * @param beanName
-     * @param clz
      * @param <T>
      * @return
      */
-    public static <T> T getBean(String beanName, Class<T> clz) {
-        return (T) getBean(beanName);
+    public static <T> T getBean(String beanName) {
+        if (getApplicationContext() == null)
+            return null;
+        return (T) getApplicationContext().getBean(beanName);
     }
 }
