@@ -7,7 +7,7 @@ import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;
 
-import static com.demo.java.common.utils.Config.MAGIC_PAGE_KEY;
+import static com.demo.java.common.Config.MAGIC_PAGE_KEY;
 
 /**
  * 抽取结束后，进行处理的部分，它主要用于抽取结果的保存

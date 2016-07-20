@@ -1,4 +1,4 @@
-package com.demo.java.common.utils;
+package com.demo.java.common;
 
 /**
  * 全局常量配置

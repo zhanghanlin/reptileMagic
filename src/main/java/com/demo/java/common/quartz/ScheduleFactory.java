@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-import static com.demo.java.common.utils.Config.JOB_DATA_KEY;
+import static com.demo.java.common.Config.JOB_DATA_KEY;
 
 /**
  * Job相关方法

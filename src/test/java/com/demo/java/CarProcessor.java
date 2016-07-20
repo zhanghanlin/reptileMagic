@@ -6,7 +6,7 @@ import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.pipeline.ConsolePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 
-import static com.demo.java.common.utils.Config.DEFAULT_ENCODE;
+import static com.demo.java.common.Config.DEFAULT_ENCODE;
 
 public class CarProcessor implements PageProcessor {
 

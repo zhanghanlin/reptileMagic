@@ -12,7 +12,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 import java.util.List;
 import java.util.Set;
 
-import static com.demo.java.common.utils.Config.DEFAULT_ENCODE;
+import static com.demo.java.common.Config.DEFAULT_ENCODE;
 
 /**
  * 模拟登陆Cookie

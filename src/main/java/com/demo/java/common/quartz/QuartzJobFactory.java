@@ -5,7 +5,7 @@ import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import static com.demo.java.common.utils.Config.JOB_DATA_KEY;
+import static com.demo.java.common.Config.JOB_DATA_KEY;
 
 /**
  * 执行计划任务

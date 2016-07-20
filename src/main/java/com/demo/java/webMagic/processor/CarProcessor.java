@@ -14,7 +14,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.Map;
 
-import static com.demo.java.common.utils.Config.*;
+import static com.demo.java.common.Config.*;
 
 public class CarProcessor implements PageProcessor {
 
