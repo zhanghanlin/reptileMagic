@@ -22,11 +22,25 @@ public class CarController {
     @Resource
     CarService carService;
 
+    /**
+     * 车源列表页
+     *
+     * @return
+     */
     @RequestMapping("/list")
     public ModelAndView list() {
         return new ModelAndView("carList");
     }
 
+    /**
+     * 车源列表页使用
+     * 分页获取数据接口
+     *
+     * @param start  开始位置
+     * @param length 每页数据量
+     * @param draw
+     * @return
+     */
     @RequestMapping("/api/list")
     @ResponseBody
     public TablePage<Car> apiList(@RequestParam(defaultValue = "1", required = false) int start,

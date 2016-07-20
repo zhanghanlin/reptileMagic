@@ -25,6 +25,12 @@ public class QuartzController {
     @Resource
     TaskService jobService;
 
+    /**
+     * 编辑定时任务页面
+     *
+     * @param regexId
+     * @return
+     */
     @RequestMapping("input/{regexId}")
     public ModelAndView input(@PathVariable String regexId) {
         ModelAndView modelAndView = new ModelAndView("quartzInput");
@@ -33,6 +39,12 @@ public class QuartzController {
         return modelAndView;
     }
 
+    /**
+     * 保存一条定时配置
+     *
+     * @param task
+     * @return
+     */
     @RequestMapping("save")
     public String save(Task task) {
         try {
@@ -43,6 +55,11 @@ public class QuartzController {
         return "redirect:/quartz/list";
     }
 
+    /**
+     * 定时配置列表页
+     *
+     * @return
+     */
     @RequestMapping("list")
     public ModelAndView list() {
         List<Task> list = new ArrayList<>();
@@ -54,6 +71,12 @@ public class QuartzController {
         return new ModelAndView("quartzList", "list", list);
     }
 
+    /**
+     * 暂停定时任务
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("pause/{id}")
     @ResponseBody
     public String pauseJob(@PathVariable String id) {
@@ -66,7 +89,12 @@ public class QuartzController {
         return "OK";
     }
 
-
+    /**
+     * 恢复暂停的定时任务
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("resume/{id}")
     @ResponseBody
     public String resumeJob(@PathVariable String id) {
@@ -79,6 +107,12 @@ public class QuartzController {
         return "OK";
     }
 
+    /**
+     * 删除一个定时任务
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("delete/{id}")
     @ResponseBody
     public String deleteJob(@PathVariable String id) {
@@ -91,7 +125,12 @@ public class QuartzController {
         return "OK";
     }
 
-
+    /**
+     * 立即运行定时任务
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("run/{id}")
     @ResponseBody
     public String runJob(@PathVariable String id) {

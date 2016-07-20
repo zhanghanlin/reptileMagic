@@ -23,6 +23,11 @@ public class RegexController {
     @Resource
     RegexService regexService;
 
+    /**
+     * 抓取规则配置页面
+     * @param id
+     * @return
+     */
     @RequestMapping("/input/{id}")
     public ModelAndView input(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView("regexInput");
@@ -44,6 +49,11 @@ public class RegexController {
         return modelAndView;
     }
 
+    /**
+     * 删除一条抓取规则
+     * @param id
+     * @return
+     */
     @RequestMapping("/delete/{id}")
     public String delete(@PathVariable String id) {
         try {
@@ -54,6 +64,11 @@ public class RegexController {
         return "redirect:/regex/list";
     }
 
+    /**
+     * 保存一条抓取规则
+     * @param regex
+     * @return
+     */
     @RequestMapping("/save")
     public String save(Regex regex) {
         try {
@@ -69,6 +84,10 @@ public class RegexController {
         return "redirect:/regex/list";
     }
 
+    /**
+     * 抓取规则列表页
+     * @return
+     */
     @RequestMapping("/list")
     public ModelAndView list() {
         List<Regex> list = regexService.list();

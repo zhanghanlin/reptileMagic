@@ -22,6 +22,12 @@ public class FetcherController {
     @Resource
     RegexService regexService;
 
+    /**
+     * 根据Regex配置启动一个爬虫
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("/start/{id}")
     @ResponseBody
     public String fetcherStart(@PathVariable String id) {
@@ -36,6 +42,12 @@ public class FetcherController {
         return "后台爬取中...";
     }
 
+    /**
+     * 根据Regex停止一个爬虫
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping("/stop/{id}")
     @ResponseBody
     public String fetcherStop(@PathVariable String id) {

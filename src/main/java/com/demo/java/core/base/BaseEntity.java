@@ -5,16 +5,28 @@ import com.demo.java.common.annotation.Ignore;
 import java.io.Serializable;
 import java.util.Date;
 
-public abstract class BaseEntity implements Serializable{
+/**
+ * Entity基类
+ */
+public abstract class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 164941249672040634L;
 
+    /**
+     * 主键ID
+     */
     @Ignore
     private String id;
 
+    /**
+     * 创建时间
+     */
     @Ignore
     private Date createTime;
 
+    /**
+     * 更新时间
+     */
     @Ignore
     private Date updateTime;
 
