@@ -110,8 +110,7 @@
                     </div>
                 </div>
                 <input type="hidden" name="data" id="data"/>
-                <div class="form-group" id="data_panel"
-                     <c:if test="${regex.isData == 0}">style="display:none;"</c:if>>
+                <div class="form-group" id="data_panel" style="display:none;">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title">
@@ -199,10 +198,6 @@
         $('#data').val(JSON.stringify(data));
         return true;
     });
-    $.each($('.form-horizontal select'), function (i, o) {
-        var val = $(o).attr('select');
-        $(o).find('option[value="' + val + '"]').prop('selected', true)
-    });
 
     $('#isData').change(function () {
         if ($(this).val() * 1 == 1) {
@@ -217,6 +212,11 @@
         } else {
             $('#login_panel').hide();
         }
+    });
+    $.each($('.form-horizontal select'), function (i, o) {
+        var val = $(o).attr('select') || 0;
+        $(o).find('option[value="' + val + '"]').prop('selected', true);
+        $(this).trigger('change');
     });
 </script>
 </body>
