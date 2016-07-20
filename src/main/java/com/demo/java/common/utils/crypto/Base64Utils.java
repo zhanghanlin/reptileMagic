@@ -68,7 +68,7 @@ public class Base64Utils {
     }
 
     /**
-     * base64 code save to file
+     * base64 core save to file
      *
      * @param base64Code
      * @param targetPath

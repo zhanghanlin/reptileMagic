@@ -1,8 +1,8 @@
 package com.demo.java.common.quartz;
 
 import com.demo.java.common.utils.SpringContextUtil;
-import com.demo.java.code.entity.Task;
-import com.demo.java.code.service.TaskService;
+import com.demo.java.core.entity.Task;
+import com.demo.java.core.service.TaskService;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

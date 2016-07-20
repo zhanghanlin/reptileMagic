@@ -1,6 +1,6 @@
-package com.demo.java.code.dao;
+package com.demo.java.core.dao;
 
-import com.demo.java.code.entity.Regex;
+import com.demo.java.core.entity.Regex;
 
 import java.util.List;
 

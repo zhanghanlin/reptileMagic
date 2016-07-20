@@ -1,7 +1,7 @@
-package com.demo.java.code.entity;
+package com.demo.java.core.entity;
 
 import com.alibaba.fastjson.JSONObject;
-import com.demo.java.code.base.BaseEntity;
+import com.demo.java.core.base.BaseEntity;
 
 /**
  * 抓取任务规则Bean

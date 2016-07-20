@@ -1,8 +1,6 @@
-package com.demo.java.code.entity;
+package com.demo.java.core.entity;
 
-import com.demo.java.code.base.BaseEntity;
-
-import java.util.Date;
+import com.demo.java.core.base.BaseEntity;
 
 public class Task extends BaseEntity {
 

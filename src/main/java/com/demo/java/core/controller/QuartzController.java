@@ -1,10 +1,10 @@
-package com.demo.java.code.controller;
+package com.demo.java.core.controller;
 
 import com.demo.java.common.quartz.FetcherQuartz;
 import com.demo.java.common.quartz.ScheduleFactory;
 import com.demo.java.common.utils.ReflectUtils;
-import com.demo.java.code.entity.Task;
-import com.demo.java.code.service.TaskService;
+import com.demo.java.core.entity.Task;
+import com.demo.java.core.service.TaskService;
 import org.quartz.SchedulerException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

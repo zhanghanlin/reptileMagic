@@ -1,6 +1,6 @@
 package com.demo.java.common.quartz;
 
-import com.demo.java.code.entity.Task;
+import com.demo.java.core.entity.Task;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
-package com.demo.java.code.controller;
+package com.demo.java.core.controller;
 
 import com.demo.java.common.vo.TablePage;
-import com.demo.java.code.entity.Car;
-import com.demo.java.code.service.CarService;
+import com.demo.java.core.entity.Car;
+import com.demo.java.core.service.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

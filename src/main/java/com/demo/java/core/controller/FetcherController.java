@@ -1,7 +1,7 @@
-package com.demo.java.code.controller;
+package com.demo.java.core.controller;
 
-import com.demo.java.code.entity.Regex;
-import com.demo.java.code.service.RegexService;
+import com.demo.java.core.entity.Regex;
+import com.demo.java.core.service.RegexService;
 import com.demo.java.webMagic.processor.CarProcessor;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;

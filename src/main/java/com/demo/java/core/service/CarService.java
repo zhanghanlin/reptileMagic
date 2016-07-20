@@ -1,8 +1,8 @@
-package com.demo.java.code.service;
+package com.demo.java.core.service;
 
 import com.demo.java.common.vo.TablePage;
-import com.demo.java.code.dao.CarMapper;
-import com.demo.java.code.entity.Car;
+import com.demo.java.core.dao.CarMapper;
+import com.demo.java.core.entity.Car;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

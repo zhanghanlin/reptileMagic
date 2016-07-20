@@ -1,7 +1,7 @@
-package com.demo.java.code.service;
+package com.demo.java.core.service;
 
-import com.demo.java.code.dao.TaskMapper;
-import com.demo.java.code.entity.Task;
+import com.demo.java.core.dao.TaskMapper;
+import com.demo.java.core.entity.Task;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Service;
 

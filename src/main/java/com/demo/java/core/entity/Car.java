@@ -1,6 +1,6 @@
-package com.demo.java.code.entity;
+package com.demo.java.core.entity;
 
-import com.demo.java.code.base.BaseEntity;
+import com.demo.java.core.base.BaseEntity;
 import com.demo.java.common.annotation.Ignore;
 import com.demo.java.common.annotation.Mapping;
 
