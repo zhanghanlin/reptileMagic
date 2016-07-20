@@ -16,6 +16,9 @@ import java.util.Map;
 
 import static com.demo.java.common.Config.*;
 
+/**
+ * 爬虫
+ */
 public class CarProcessor implements PageProcessor {
 
     private Site site;

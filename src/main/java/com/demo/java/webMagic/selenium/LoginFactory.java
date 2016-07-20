@@ -11,6 +11,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import java.util.Set;
 import java.util.logging.Level;
 
+/**
+ * 使用selenium模拟登陆
+ */
 public class LoginFactory {
 
     static {

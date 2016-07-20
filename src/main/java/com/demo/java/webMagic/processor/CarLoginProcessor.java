@@ -15,7 +15,7 @@ import java.util.Set;
 import static com.demo.java.common.Config.DEFAULT_ENCODE;
 
 /**
- * 模拟登陆Cookie
+ * 抓取登陆后的数据
  */
 public class CarLoginProcessor implements PageProcessor {
 
@@ -28,7 +28,6 @@ public class CarLoginProcessor implements PageProcessor {
             System.out.println(s);
         }
     }
-
 
     @Override
     public Site getSite() {
