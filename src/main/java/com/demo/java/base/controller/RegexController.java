@@ -1,10 +1,10 @@
-package com.demo.java.controller;
+package com.demo.java.base.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.demo.java.common.utils.ReflectUtils;
-import com.demo.java.model.Car;
-import com.demo.java.model.Regex;
-import com.demo.java.service.RegexService;
+import com.demo.java.base.entity.Car;
+import com.demo.java.base.entity.Regex;
+import com.demo.java.base.service.RegexService;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -61,7 +61,7 @@ public class RegexController {
             regex.setData(StringEscapeUtils.unescapeHtml4(regex.getData()));
             if (StringUtils.isBlank(regex.getId())) {
                 regex.setId(UUID.randomUUID().toString().replace("-", ""));
-                regexService.save(regex);
+                regexService.insert(regex);
             } else {
                 regexService.update(regex);
             }

@@ -101,6 +101,19 @@
             <version>${spring.version}</version>
         </dependency>
         <!-- Spring end -->
+        <!-- Mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <!-- mybatis/spring包 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+        <!-- Mybatis -->
         <!-- Web Magic -->
         <dependency>
             <groupId>us.codecraft</groupId>
@@ -136,6 +149,15 @@
                     <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${plugin.mybatis.generator.version}</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <properties>
@@ -151,7 +173,10 @@
         <mysql.version>5.1.38</mysql.version>
         <quartz.version>2.2.1</quartz.version>
         <junit.version>4.12</junit.version>
+        <mybatis.version>3.2.7</mybatis.version>
+        <mybatis-spring.version>1.2.2</mybatis-spring.version>
         <webmagic.version>0.5.2</webmagic.version>
         <plugin.compiler.version>3.1</plugin.compiler.version>
+        <plugin.mybatis.generator.version>1.3.2</plugin.mybatis.generator.version>
     </properties>
 </project>

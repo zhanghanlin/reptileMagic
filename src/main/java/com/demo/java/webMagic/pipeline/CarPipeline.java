@@ -1,8 +1,8 @@
 package com.demo.java.webMagic.pipeline;
 
 import com.demo.java.common.utils.SpringContextUtil;
-import com.demo.java.model.Car;
-import com.demo.java.service.CarService;
+import com.demo.java.base.entity.Car;
+import com.demo.java.base.service.CarService;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.pipeline.Pipeline;

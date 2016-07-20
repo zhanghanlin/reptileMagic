@@ -1,53 +1,58 @@
-package com.demo.java.model;
+package com.demo.java.base.entity;
 
 import com.demo.java.common.annotation.Ignore;
 import com.demo.java.common.annotation.Mapping;
 
 import java.util.Date;
 
-import static com.demo.java.common.utils.Config.STRING_EMPTY;
-
 public class Car {
     @Ignore
-    private String id;  //Id
+    private String id;
     @Mapping(name = "名称")
-    private String carName; //名称
+    private String carName;
     @Mapping(name = "价格")
-    private String price;   //价格 单位万
+    private String price;
     @Mapping(name = "上牌时间")
-    private String onTime;  //上牌时间
+    private String onTime;
     @Mapping(name = "里程数")
-    private String mileage; //里程数
+    private String mileage;
     @Mapping(name = "变速箱类型")
-    private String speedCase;   //变速箱类型
+    private String speedCase;
     @Mapping(name = "年检到期")
-    private String inspectExpire;// 年检到期
+    private String inspectExpire;
     @Mapping(name = "保险到期")
-    private String safeExpire;  //保险到期
+    private String safeExpire;
     @Mapping(name = "事故")
-    private String accident;    //事故
-    @Mapping(name = "联系热")
-    private String userName;    //联系人
+    private String accident;
+    @Mapping(name = "联系人")
+    private String userName;
     @Mapping(name = "电话")
-    private String phone;   //联系方式
-    @Mapping(name = "地址")
-    private String address; //地址
+    private String phone;
+    @Ignore
+    private Date createTime;
 
+    /**
+     * 原始URL
+     */
     @Ignore
-    private String source;  //来源标识,默认使用抓取任务中唯一任务标识
+    private String url;
     @Ignore
-    private Date createTime;    //抓取时间
+    private Date updateTime;
+    @Mapping(name = "地址")
+    private String address;
+
+    /**
+     * 来源标识,默认使用抓取任务中唯一任务标识
+     */
     @Ignore
-    private Date updateTime;    //更新时间
-    @Ignore
-    private String url;     //原始URL
+    private String source;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getCarName() {
@@ -55,7 +60,7 @@ public class Car {
     }
 
     public void setCarName(String carName) {
-        this.carName = carName;
+        this.carName = carName == null ? null : carName.trim();
     }
 
     public String getPrice() {
@@ -63,7 +68,7 @@ public class Car {
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        this.price = price == null ? null : price.trim();
     }
 
     public String getOnTime() {
@@ -71,7 +76,7 @@ public class Car {
     }
 
     public void setOnTime(String onTime) {
-        this.onTime = onTime;
+        this.onTime = onTime == null ? null : onTime.trim();
     }
 
     public String getMileage() {
@@ -79,7 +84,7 @@ public class Car {
     }
 
     public void setMileage(String mileage) {
-        this.mileage = mileage;
+        this.mileage = mileage == null ? null : mileage.trim();
     }
 
     public String getSpeedCase() {
@@ -87,7 +92,7 @@ public class Car {
     }
 
     public void setSpeedCase(String speedCase) {
-        this.speedCase = speedCase;
+        this.speedCase = speedCase == null ? null : speedCase.trim();
     }
 
     public String getInspectExpire() {
@@ -95,7 +100,7 @@ public class Car {
     }
 
     public void setInspectExpire(String inspectExpire) {
-        this.inspectExpire = inspectExpire;
+        this.inspectExpire = inspectExpire == null ? null : inspectExpire.trim();
     }
 
     public String getSafeExpire() {
@@ -103,7 +108,7 @@ public class Car {
     }
 
     public void setSafeExpire(String safeExpire) {
-        this.safeExpire = safeExpire;
+        this.safeExpire = safeExpire == null ? null : safeExpire.trim();
     }
 
     public String getAccident() {
@@ -111,7 +116,7 @@ public class Car {
     }
 
     public void setAccident(String accident) {
-        this.accident = accident;
+        this.accident = accident == null ? null : accident.trim();
     }
 
     public String getUserName() {
@@ -119,7 +124,7 @@ public class Car {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getPhone() {
@@ -127,7 +132,7 @@ public class Car {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone = phone == null ? null : phone.trim();
     }
 
     public Date getCreateTime() {
@@ -138,6 +143,14 @@ public class Car {
         this.createTime = createTime;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+
     public Date getUpdateTime() {
         return updateTime;
     }
@@ -146,20 +159,12 @@ public class Car {
         this.updateTime = updateTime;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getAddress() {
-        return address == null ? STRING_EMPTY : address;
+        return address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = address == null ? null : address.trim();
     }
 
     public String getSource() {
@@ -167,6 +172,6 @@ public class Car {
     }
 
     public void setSource(String source) {
-        this.source = source;
+        this.source = source == null ? null : source.trim();
     }
 }

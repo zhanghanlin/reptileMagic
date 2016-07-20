@@ -1,7 +1,7 @@
-package com.demo.java.service;
+package com.demo.java.base.service;
 
-import com.demo.java.model.Task;
-import com.demo.java.dao.TaskDao;
+import com.demo.java.base.dao.TaskMapper;
+import com.demo.java.base.entity.Task;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Service;
 
@@ -14,28 +14,28 @@ import java.util.UUID;
 public class TaskService {
 
     @Resource
-    TaskDao taskDao;
+    TaskMapper taskMapper;
 
     public Task get(String id) {
-        return taskDao.get(id);
+        return taskMapper.get(id);
     }
 
-    public int save(Task job) {
-        job.setId(UUID.randomUUID().toString().replace("-", ""));
-        return taskDao.save(job);
+    public int insert(Task task) {
+        task.setId(UUID.randomUUID().toString().replace("-", ""));
+        return taskMapper.insert(task);
     }
 
-    public List<Task> list() {
-        return taskDao.list();
+    public List<Task> selectAll() {
+        return taskMapper.selectAll();
     }
 
     public int delete(String id) {
-        return taskDao.delete(id);
+        return taskMapper.delete(id);
     }
 
     public Map<String, Task> map() {
         Map<String, Task> map = new HashedMap();
-        for (Task task : list()) {
+        for (Task task : selectAll()) {
             map.put(task.getTriggerKey(), task);
         }
         return map;

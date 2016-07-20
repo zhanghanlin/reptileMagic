@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.java.base.dao.CarMapper">
+    <resultMap id="BaseResultMap" type="com.demo.java.base.entity.Car">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="car_name" property="carName" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="VARCHAR"/>
+        <result column="on_time" property="onTime" jdbcType="VARCHAR"/>
+        <result column="mileage" property="mileage" jdbcType="VARCHAR"/>
+        <result column="speed_case" property="speedCase" jdbcType="VARCHAR"/>
+        <result column="inspect_expire" property="inspectExpire" jdbcType="VARCHAR"/>
+        <result column="safe_expire" property="safeExpire" jdbcType="VARCHAR"/>
+        <result column="accident" property="accident" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="source" property="source" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, car_name, price, on_time, mileage, speed_case, inspect_expire, safe_expire, accident, 
+    user_name, phone, create_time, url, update_time, address, source
+  </sql>
+    <select id="selectByPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from car limit #{0},#{1}
+    </select>
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        select count(id) from car
+    </select>
+    <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from car
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="delete" parameterType="java.lang.String">
+      delete from car where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.demo.java.base.entity.Car">
+        insert into car
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="carName != null">
+                car_name,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="onTime != null">
+                on_time,
+            </if>
+            <if test="mileage != null">
+                mileage,
+            </if>
+            <if test="speedCase != null">
+                speed_case,
+            </if>
+            <if test="inspectExpire != null">
+                inspect_expire,
+            </if>
+            <if test="safeExpire != null">
+                safe_expire,
+            </if>
+            <if test="accident != null">
+                accident,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="source != null">
+                source,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="carName != null">
+                #{carName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="onTime != null">
+                #{onTime,jdbcType=VARCHAR},
+            </if>
+            <if test="mileage != null">
+                #{mileage,jdbcType=VARCHAR},
+            </if>
+            <if test="speedCase != null">
+                #{speedCase,jdbcType=VARCHAR},
+            </if>
+            <if test="inspectExpire != null">
+                #{inspectExpire,jdbcType=VARCHAR},
+            </if>
+            <if test="safeExpire != null">
+                #{safeExpire,jdbcType=VARCHAR},
+            </if>
+            <if test="accident != null">
+                #{accident,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="source != null">
+                #{source,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="update" parameterType="com.demo.java.base.entity.Car">
+        update car
+        <set>
+            <if test="carName != null">
+                car_name = #{carName,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="onTime != null">
+                on_time = #{onTime,jdbcType=VARCHAR},
+            </if>
+            <if test="mileage != null">
+                mileage = #{mileage,jdbcType=VARCHAR},
+            </if>
+            <if test="speedCase != null">
+                speed_case = #{speedCase,jdbcType=VARCHAR},
+            </if>
+            <if test="inspectExpire != null">
+                inspect_expire = #{inspectExpire,jdbcType=VARCHAR},
+            </if>
+            <if test="safeExpire != null">
+                safe_expire = #{safeExpire,jdbcType=VARCHAR},
+            </if>
+            <if test="accident != null">
+                accident = #{accident,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="source != null">
+                source = #{source,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>

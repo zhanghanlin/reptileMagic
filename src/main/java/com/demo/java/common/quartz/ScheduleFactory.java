@@ -1,7 +1,7 @@
 package com.demo.java.common.quartz;
 
-import com.demo.java.model.Task;
-import com.demo.java.service.TaskService;
+import com.demo.java.base.entity.Task;
+import com.demo.java.base.service.TaskService;
 import com.demo.java.common.utils.SpringContextUtil;
 import org.quartz.*;
 import org.quartz.impl.StdScheduler;
@@ -70,7 +70,7 @@ public class ScheduleFactory {
      * @throws SchedulerException
      */
     public void addJob(Task task) throws SchedulerException {
-        taskService.save(task);
+        taskService.insert(task);
         if (task == null || !Task.STATUS_RUNNING.equals(task.getStatus())) {
             return;
         }

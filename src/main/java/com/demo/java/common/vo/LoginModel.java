@@ -1,4 +1,4 @@
-package com.demo.java.model;
+package com.demo.java.common.vo;
 
 public class LoginModel {
     private String url;

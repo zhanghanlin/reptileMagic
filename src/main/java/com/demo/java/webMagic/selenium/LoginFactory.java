@@ -1,6 +1,6 @@
 package com.demo.java.webMagic.selenium;
 
-import com.demo.java.model.LoginModel;
+import com.demo.java.common.vo.LoginModel;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.impl.Jdk14Logger;
 import org.openqa.selenium.By;

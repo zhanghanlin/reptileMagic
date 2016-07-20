@@ -3,8 +3,8 @@ package com.demo.java.webMagic.processor;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.java.common.utils.PatternUtils;
-import com.demo.java.model.Car;
-import com.demo.java.model.Regex;
+import com.demo.java.base.entity.Car;
+import com.demo.java.base.entity.Regex;
 import com.demo.java.webMagic.pipeline.CarPipeline;
 import org.apache.commons.lang3.StringUtils;
 import us.codecraft.webmagic.Page;
@@ -14,9 +14,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.Map;
 
-import static com.demo.java.common.utils.Config.DEFAULT_ENCODE;
-import static com.demo.java.common.utils.Config.MAGIC_PAGE_KEY;
-import static com.demo.java.common.utils.Config.STRING_EMPTY;
+import static com.demo.java.common.utils.Config.*;
 
 public class CarProcessor implements PageProcessor {
 

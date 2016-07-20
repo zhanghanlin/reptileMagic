@@ -1,6 +1,6 @@
 package com.demo.java.webMagic.processor;
 
-import com.demo.java.model.LoginModel;
+import com.demo.java.common.vo.LoginModel;
 import com.demo.java.webMagic.pipeline.CarPipeline;
 import com.demo.java.webMagic.selenium.LoginFactory;
 import org.openqa.selenium.Cookie;

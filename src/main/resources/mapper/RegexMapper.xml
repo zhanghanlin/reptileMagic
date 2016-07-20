@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.java.base.dao.RegexMapper">
+    <resultMap id="BaseResultMap" type="com.demo.java.base.entity.Regex">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="list_regex" property="listRegex" jdbcType="VARCHAR"/>
+        <result column="detail_regex" property="detailRegex" jdbcType="VARCHAR"/>
+        <result column="thread" property="thread" jdbcType="INTEGER"/>
+        <result column="ignore_key" property="ignoreKey" jdbcType="VARCHAR"/>
+        <result column="data" property="data" jdbcType="VARCHAR"/>
+        <result column="task_key" property="taskKey" jdbcType="VARCHAR"/>
+        <result column="is_data" property="isData" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="retry_time" property="retryTime" jdbcType="INTEGER"/>
+        <result column="cycle_retry_time" property="cycleRetryTime" jdbcType="INTEGER"/>
+        <result column="sleep_time" property="sleepTime" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, name, url, list_regex, detail_regex, thread, ignore_key, data, task_key, is_data, 
+    create_time, update_time, retry_time, cycle_retry_time, sleep_time
+  </sql>
+    <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from regex
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from regex
+    </select>
+    <delete id="delete" parameterType="java.lang.String">
+    delete from regex
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+    <insert id="insert" parameterType="com.demo.java.base.entity.Regex">
+        insert into regex
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="listRegex != null">
+                list_regex,
+            </if>
+            <if test="detailRegex != null">
+                detail_regex,
+            </if>
+            <if test="thread != null">
+                thread,
+            </if>
+            <if test="ignoreKey != null">
+                ignore_key,
+            </if>
+            <if test="data != null">
+                data,
+            </if>
+            <if test="taskKey != null">
+                task_key,
+            </if>
+            <if test="isData != null">
+                is_data,
+            </if>
+            <if test="retryTime != null">
+                retry_time,
+            </if>
+            <if test="cycleRetryTime != null">
+                cycle_retry_time,
+            </if>
+            <if test="sleepTime != null">
+                sleep_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="listRegex != null">
+                #{listRegex,jdbcType=VARCHAR},
+            </if>
+            <if test="detailRegex != null">
+                #{detailRegex,jdbcType=VARCHAR},
+            </if>
+            <if test="thread != null">
+                #{thread,jdbcType=INTEGER},
+            </if>
+            <if test="ignoreKey != null">
+                #{ignoreKey,jdbcType=VARCHAR},
+            </if>
+            <if test="data != null">
+                #{data,jdbcType=VARCHAR},
+            </if>
+            <if test="taskKey != null">
+                #{taskKey,jdbcType=VARCHAR},
+            </if>
+            <if test="isData != null">
+                #{isData,jdbcType=INTEGER},
+            </if>
+            <if test="retryTime != null">
+                #{retryTime,jdbcType=INTEGER},
+            </if>
+            <if test="cycleRetryTime != null">
+                #{cycleRetryTime,jdbcType=INTEGER},
+            </if>
+            <if test="sleepTime != null">
+                #{sleepTime,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="update" parameterType="com.demo.java.base.entity.Regex">
+        update regex
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="listRegex != null">
+                list_regex = #{listRegex,jdbcType=VARCHAR},
+            </if>
+            <if test="detailRegex != null">
+                detail_regex = #{detailRegex,jdbcType=VARCHAR},
+            </if>
+            <if test="thread != null">
+                thread = #{thread,jdbcType=INTEGER},
+            </if>
+            <if test="ignoreKey != null">
+                ignore_key = #{ignoreKey,jdbcType=VARCHAR},
+            </if>
+            <if test="data != null">
+                data = #{data,jdbcType=VARCHAR},
+            </if>
+            <if test="taskKey != null">
+                task_key = #{taskKey,jdbcType=VARCHAR},
+            </if>
+            <if test="isData != null">
+                is_data = #{isData,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="retryTime != null">
+                retry_time = #{retryTime,jdbcType=INTEGER},
+            </if>
+            <if test="cycleRetryTime != null">
+                cycle_retry_time = #{cycleRetryTime,jdbcType=INTEGER},
+            </if>
+            <if test="sleepTime != null">
+                sleep_time = #{sleepTime,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+</mapper>
