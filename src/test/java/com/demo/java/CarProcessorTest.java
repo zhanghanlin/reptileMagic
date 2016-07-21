@@ -1,10 +1,10 @@
 package com.demo.java;
 
+import com.alibaba.fastjson.JSONObject;
 import com.demo.java.core.entity.Car;
 import com.demo.java.core.entity.Regex;
 import com.demo.java.core.service.RegexService;
 import com.demo.java.webMagic.processor.CarProcessor;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import us.codecraft.webmagic.ResultItems;
 import us.codecraft.webmagic.Spider;
@@ -37,9 +37,7 @@ public class CarProcessorTest extends BaseTest {
         @Override
         public void process(ResultItems resultItems, Task task) {
             Car car = resultItems.get(MAGIC_PAGE_KEY);
-            if (StringUtils.isBlank(car.getOnTime())) {
-                System.out.println(car.getUrl());
-            }
+            System.out.println(JSONObject.toJSONString(car));
         }
     }
 }
