@@ -1,6 +1,7 @@
 package com.demo.java.webMagic.selenium;
 
 import com.demo.java.common.vo.LoginModel;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.logging.impl.Jdk14Logger;
 import org.openqa.selenium.By;
@@ -24,13 +25,13 @@ public class LoginFactory {
         HtmlUnitDriver driver = new HtmlUnitDriver();
         driver.setJavascriptEnabled(true);
         driver.get(model.getUrl());
-        WebElement loginTab = driver.findElement(By.id(model.getClickTab()));
-        if (loginTab != null) {
+        if (StringUtils.isNoneBlank(model.getClickTab())) {
+            WebElement loginTab = driver.findElement(By.id(model.getClickTab()));
             loginTab.click();
         }
         WebElement formEle = driver.findElement(By.id(model.getForm()));
-        WebElement usernameEle = driver.findElement(By.id(model.getUserNameInput()));
-        WebElement passwordEle = driver.findElement(By.id(model.getPasswordInput()));
+        WebElement usernameEle = driver.findElement(By.name(model.getUserNameInput()));
+        WebElement passwordEle = driver.findElement(By.name(model.getPasswordInput()));
 //        driver.get("https://passport.58.com/login");
 //        WebElement loginTab = driver.findElement(By.id("login_tab_orig"));
 //        loginTab.click();

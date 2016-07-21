@@ -23,7 +23,8 @@ public class CarLoginProcessor implements PageProcessor {
 
     @Override
     public void process(Page page) {
-        List<String> list = page.getHtml().xpath("//p[@class='my-item-item-content-left-title']").all();
+//        List<String> list = page.getHtml().xpath("//p[@class='my-item-item-content-left-title']").all();
+        List<String> list = page.getHtml().xpath("//div[@id='object_list']/span[@class='post_title_in_list']/text").all();
         for (String s : list) {
             System.out.println(s);
         }
@@ -58,16 +59,27 @@ public class CarLoginProcessor implements PageProcessor {
     }
 
     public static void main(String[] args) {
-        LoginModel model = new LoginModel();
-        model.setUrl("https://passport.58.com/login");
-        model.setDomain(".58.com");
-        model.setClickTab("login_tab_orig");
-        model.setForm("submitForm_new");
-        model.setUserNameInput("username_new");
-        model.setPasswordInput("password_new");
-        model.setUserName("username");
-        model.setPassword("password");
-        Spider spider = CarLoginProcessor.getSpider("http://my.58.com/infoall?sys=my", 5, model);
+        LoginModel model58 = new LoginModel();
+        model58.setUrl("https://passport.58.com/login");
+        model58.setDomain(".58.com");
+        model58.setClickTab("login_tab_orig");
+        model58.setForm("submitForm_new");
+        model58.setUserNameInput("username_new");
+        model58.setPasswordInput("password_new");
+        model58.setUserName("username");
+        model58.setPassword("password");
+
+
+        LoginModel modelGJ = new LoginModel();
+        modelGJ.setUrl("https://passport.ganji.com/login.php");
+        modelGJ.setDomain(".ganji.com");
+        modelGJ.setForm("loginform");
+        modelGJ.setUserNameInput("login_username");
+        modelGJ.setPasswordInput("login_password");
+        modelGJ.setUserName("username");
+        modelGJ.setPassword("password");
+
+        Spider spider = CarLoginProcessor.getSpider("http://www.ganji.com/vip/my_post_list.php?source=archived_post", 5, modelGJ);
         spider.start();
     }
 }
