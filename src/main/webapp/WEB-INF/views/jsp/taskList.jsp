@@ -13,7 +13,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">定时任务列表</h1>
             <a class="btn btn-default btn-xs"
-               role="button" href="/quartz/input/0">新增定时任务</a>
+               role="button" href="/task/input/0">新增定时任务</a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -58,7 +58,7 @@
         ex(action, id);
     });
     function ex(action, id) {
-        var url = '/quartz/' + action + '/' + id;
+        var url = '/task/' + action + '/' + id;
         $.ajax({
             url: url,
             cache: true,

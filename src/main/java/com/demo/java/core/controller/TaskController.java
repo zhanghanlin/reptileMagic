@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("quartz")
-public class QuartzController {
+@RequestMapping("task")
+public class TaskController {
 
     ScheduleFactory scheduleFactory = ScheduleFactory.getInstance();
 
@@ -33,7 +33,7 @@ public class QuartzController {
      */
     @RequestMapping("input/{regexId}")
     public ModelAndView input(@PathVariable String regexId) {
-        ModelAndView modelAndView = new ModelAndView("quartzInput");
+        ModelAndView modelAndView = new ModelAndView("taskInput");
         modelAndView.addObject("regexId", regexId);
         modelAndView.addObject("methods", ReflectUtils.getMethod(FetcherQuartz.class));
         return modelAndView;
@@ -52,7 +52,7 @@ public class QuartzController {
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
-        return "redirect:/quartz/list";
+        return "redirect:/task/list";
     }
 
     /**
@@ -68,7 +68,7 @@ public class QuartzController {
         } catch (SchedulerException e) {
             e.printStackTrace();
         }
-        return new ModelAndView("quartzList", "list", list);
+        return new ModelAndView("taskList", "list", list);
     }
 
     /**
