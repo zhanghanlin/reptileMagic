@@ -10,7 +10,7 @@
     <description>Spring Common Config</description>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <bean id="springContextUtil" class="com.demo.java.common.utils.SpringContextUtil"/>
-    <!-- 扫描注解Bean -->
+    <!-- spring的扫描器,实现bean的自动载入 -->
     <context:component-scan base-package="com.demo.java">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
