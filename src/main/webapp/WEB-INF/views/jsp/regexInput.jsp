@@ -104,10 +104,8 @@
                                     <div class="col-md-12">字段名</div>
                                 </div>
                                 <div class="col-sm-10">
-                                    <div class="col-md-4">CSS选择器</div>
-                                    <div class="col-md-2">获取数据类型</div>
-                                    <div class="col-md-2">是否处理</div>
-                                    <div class="col-md-3">处理值</div>
+                                    <div class="col-md-6">CSS选择器</div>
+                                    <div class="col-md-4">获取数据类型</div>
                                 </div>
                             </div>
                             <c:forEach var="item" items="${data.entrySet()}" varStatus="status">
@@ -115,28 +113,17 @@
                                     <label for="${item.key}"
                                            class="col-sm-2 control-label">${item.value.get('name')}</label>
                                     <div class="col-sm-10">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <input type="text" class="form-control col_dom" id="${item.key}"
                                                    value="${item.value.get('dom')}"
                                                    placeholder="${item.value.get('name')}">
                                         </div>
-                                        <div class="col-md-2">
-                                            <select class="form-control col_type" select="${item.value.get('type')}">
+                                        <div class="col-md-4">
+                                            <select class="form-control col_type"
+                                                    select="${item.value.get('type')}">
                                                 <option value="String">字符串</option>
                                                 <option value="Integer">数字</option>
                                             </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class="form-control col_handle"
-                                                    select="${item.value.get('handle')}">
-                                                <option value="none">不处理</option>
-                                                <option value="replace">替换</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control col_handle_p"
-                                                   value="${item.value.get('handle_p')}"
-                                                   placeholder="${item.value.get('handle_p')}">
                                         </div>
                                     </div>
                                 </div>
@@ -165,14 +152,10 @@
         var data = {};
         $.each($('.col-data'), function (i, o) {
             var key = $(o).find('label').attr('for');
-            var handle = $(o).find('.col_handle').val();
-            var handle_p = $(o).find('.col_handle_p').val();
             var dom = $(o).find('.col_dom').val();
             var type = $(o).find('.col_type').val();
             var ele = {};
             ele["dom"] = dom;
-            ele["handle"] = handle;
-            ele["handle_p"] = handle_p;
             ele["type"] = type;
             data[key] = ele;
         });

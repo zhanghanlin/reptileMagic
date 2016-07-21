@@ -48,11 +48,6 @@ public class CarProcessor implements PageProcessor {
                 String type = jsonVal.getString("type");
                 //默认按照String处理
                 val = parseType(val, type);
-                //特殊处理器
-                String handle = jsonVal.getString("handle");
-                //需要处理的值,如替换则该字段为需要替换的值
-                String handle_p = jsonVal.getString("handle_p");
-                val = handle(val, handle, handle_p);
                 object.put(entry.getKey(), val.trim());
             }
             //将JSON数据转化为Bean对象
@@ -86,27 +81,6 @@ public class CarProcessor implements PageProcessor {
         }
         if (type.equals("Integer")) {
             val = PatternUtils.matchNum(val);
-        }
-        return val;
-    }
-
-    /**
-     * 处理器
-     *
-     * @param val
-     * @param handle
-     * @param handle_p
-     * @return
-     */
-    String handle(String val, String handle, String handle_p) {
-        //判断处理器是否为空
-        if (StringUtils.isNoneBlank(handle)) {
-            if (handle.equals("replace")) {
-                String[] hps = handle_p.split(SPLIT_VERTICAL);
-                for (String h : hps) {
-                    val = val.replace(h, STRING_EMPTY);
-                }
-            }
         }
         return val;
     }
