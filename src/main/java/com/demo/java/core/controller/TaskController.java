@@ -1,7 +1,7 @@
 package com.demo.java.core.controller;
 
-import com.demo.java.common.quartz.FetcherQuartz;
-import com.demo.java.common.quartz.ScheduleFactory;
+import com.demo.java.core.quartz.FetcherQuartz;
+import com.demo.java.core.quartz.ScheduleFactory;
 import com.demo.java.common.utils.ReflectUtils;
 import com.demo.java.core.entity.Task;
 import com.demo.java.core.service.TaskService;

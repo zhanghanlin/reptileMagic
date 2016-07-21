@@ -29,8 +29,8 @@
                     <label class="col-sm-2 control-label">执行类</label>
                     <div class="col-sm-10">
                         <select class="form-control" name="beanClass">
-                            <option value="com.demo.java.common.quartz.FetcherQuartz">
-                                com.demo.java.common.quartz.FetcherQuartz
+                            <option value="com.demo.java.core.quartz.FetcherQuartz">
+                                com.demo.java.core.quartz.FetcherQuartz
                             </option>
                         </select>
                     </div>

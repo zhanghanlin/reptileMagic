@@ -1,4 +1,4 @@
-package com.demo.java.common.quartz;
+package com.demo.java.core.quartz;
 
 import com.demo.java.core.entity.Task;
 import com.demo.java.core.service.TaskService;
@@ -14,7 +14,7 @@ import java.util.*;
 import static com.demo.java.common.Config.JOB_DATA_KEY;
 
 /**
- * Task相关方法
+ * 定时调度
  */
 public class ScheduleFactory {
 

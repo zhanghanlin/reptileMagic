@@ -7,5 +7,5 @@
     <bean id="schedulerFactoryBean"
           class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
     <!--加载可执行的任务-->
-    <bean id="loadTask" class="com.demo.java.common.quartz.LoadTask" init-method="initTask"/>
+    <bean id="loadTask" class="com.demo.java.core.quartz.LoadTask" init-method="initTask"/>
 </beans>

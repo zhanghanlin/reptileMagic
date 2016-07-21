@@ -1,4 +1,4 @@
-package com.demo.java.common.quartz;
+package com.demo.java.core.quartz;
 
 import com.demo.java.common.utils.SpringContextUtil;
 import com.demo.java.core.entity.Task;
