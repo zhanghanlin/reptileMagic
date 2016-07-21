@@ -1,6 +1,7 @@
 package com.demo.java.core.base;
 
 import com.demo.java.common.annotation.Ignore;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -52,5 +53,10 @@ public abstract class BaseEntity implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

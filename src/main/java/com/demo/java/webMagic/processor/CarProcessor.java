@@ -31,6 +31,7 @@ public class CarProcessor implements PageProcessor {
             if (StringUtils.isNoneBlank(regex.getIgnoreKey())) {
                 //如果存在则不抓取该页面
                 if (page.getHtml().$(regex.getIgnoreKey()).all().size() > 0) {
+                    page.setSkip(true);
                     return;
                 }
             }
