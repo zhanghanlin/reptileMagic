@@ -24,4 +24,9 @@ public interface Config {
      * 定时任务将数据PUT至JobDataMap的Key
      */
     String JOB_DATA_KEY = "scheduleJob";
+
+    /**
+     * 竖线分隔符
+     */
+    String SPLIT_VERTICAL = "[|]";
 }

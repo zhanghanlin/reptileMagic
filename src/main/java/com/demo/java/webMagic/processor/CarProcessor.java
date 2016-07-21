@@ -102,9 +102,9 @@ public class CarProcessor implements PageProcessor {
         //判断处理器是否为空
         if (StringUtils.isNoneBlank(handle)) {
             if (handle.equals("replace")) {
-                String[] hps = handle_p.split("\\|");
+                String[] hps = handle_p.split(SPLIT_VERTICAL);
                 for (String h : hps) {
-                    val = val.replace(h, "");
+                    val = val.replace(h, STRING_EMPTY);
                 }
             }
         }
