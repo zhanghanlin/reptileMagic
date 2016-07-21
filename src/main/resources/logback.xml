@@ -9,7 +9,6 @@
                 shows the width of 5 characters %msg - log info %n - newlines -->
             <pattern>
                 %d %yellow(%-1level) --- [%thread] %cyan(%logger[%file:%line]) : %msg %n
-                <!--%d %yellow(%-1level) -&#45;&#45; [%thread] %cyan(%caller{1}) : %msg %n-->
             </pattern>
         </encoder>
     </appender>
@@ -22,16 +21,9 @@
     <logger name="com.demo.java">
         <level value="INFO"/>
     </logger>
-    <logger name="org.mybatis.spring">
-        <level value="INFO"/>
-    </logger>
-    <logger name="org.apache.ibatis">
-        <level value="INFO"/>
-    </logger>
     <logger name="org.apache.http.client.protocol.ResponseProcessCookies">
         <level value="ERROR"/>
     </logger>
-    <!-- Console -->
     <root level="INFO">
         <appender-ref ref="Console"/>
     </root>
