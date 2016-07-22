@@ -134,7 +134,7 @@
         <dependency>
             <groupId>us.codecraft</groupId>
             <artifactId>webmagic-selenium</artifactId>
-            <version>${webmagic.version}</version>
+            <version>${webmagic.selenium.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -175,7 +175,8 @@
         <junit.version>4.12</junit.version>
         <mybatis.version>3.2.7</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
-        <webmagic.version>0.5.2</webmagic.version>
+        <webmagic.version>0.5.3</webmagic.version>
+        <webmagic.selenium.version>0.5.2</webmagic.selenium.version>
         <plugin.compiler.version>3.1</plugin.compiler.version>
         <plugin.mybatis.generator.version>1.3.2</plugin.mybatis.generator.version>
     </properties>
