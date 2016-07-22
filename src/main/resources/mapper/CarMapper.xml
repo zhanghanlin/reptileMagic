@@ -38,7 +38,10 @@
         where id = #{id,jdbcType=VARCHAR}
     </select>
     <delete id="delete" parameterType="java.lang.String">
-      delete from car where id = #{id,jdbcType=VARCHAR}
+        delete from car
+        <if test='_parameter != "0"'>
+            where id = #{id,jdbcType=VARCHAR}
+        </if>
     </delete>
     <insert id="insert" parameterType="com.demo.java.core.entity.Car">
         insert into car

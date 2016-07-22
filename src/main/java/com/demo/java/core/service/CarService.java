@@ -41,4 +41,8 @@ public class CarService {
         int total = carMapper.getTotalCount();
         return new TablePage<>(1, total, total, list);
     }
+
+    public int delete() {
+        return carMapper.delete("0");
+    }
 }

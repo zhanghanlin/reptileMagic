@@ -89,25 +89,29 @@
             $('td:eq(8)', nRow).attr("title", aData['phone']);
             $('td:eq(9)', nRow).attr("title", aData['address']);
             $('td:eq(10)', nRow).html('<a href="' + aData['url'] + '" target="_blank">查看</a>')
+        },
+        fnInitComplete: function () {
+            $('#search_wrapper div.row:first > div:eq(1)').prepend('<button class="btn btn-default btn-xs delete">清空数据</button>');
         }
     });
 
-    function formatDate(timestamp) {
-        var now = new Date(timestamp);
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        var date = now.getDate();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var second = now.getSeconds();
-        if (month < 10) {
-            month = "0" + month;
+    $('.table-responsive').delegate('button.delete', 'click', function () {
+        if ($("#search").dataTable().fnGetNodes().length > 0) {
+            return;
         }
-        if (second < 10) {
-            second = "0" + second;
+        if (confirm("确定要清空?")) {
+            $.ajax({
+                url: '/car/api/delete',
+                type: 'POST',
+                dataType: 'text',
+                success: function (msg) {
+                    alert(msg);
+                    $("#search").dataTable().fnDraw(false)
+                }
+            });
         }
-        return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
-    }
+    })
+
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.demo.java;
+package com.demo.java.webmagic;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;

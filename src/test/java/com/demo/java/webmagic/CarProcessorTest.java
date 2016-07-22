@@ -1,6 +1,7 @@
-package com.demo.java;
+package com.demo.java.webmagic;
 
 import com.alibaba.fastjson.JSONObject;
+import com.demo.java.BaseTest;
 import com.demo.java.core.entity.Car;
 import com.demo.java.core.entity.Regex;
 import com.demo.java.core.service.RegexService;
@@ -23,6 +24,7 @@ public class CarProcessorTest extends BaseTest {
     @Test
     public void runCar() {
         Regex regex = regexService.get("b788726b855b4b7ba3a0b972315adc15");
+        if (regex == null) return;
         CarProcessor carProcessor = new CarProcessor(regex);
         Spider spider = Spider.create(carProcessor);
         spider.addPipeline(new ConsolePipeline());

@@ -55,4 +55,16 @@ public class CarController {
             return new TablePage<>(draw, 0, 0, null);
         }
     }
+
+    /**
+     * 清空抓取的数据
+     *
+     * @return
+     */
+    @RequestMapping("/api/delete")
+    @ResponseBody
+    public String deleteAll() {
+        carService.delete();
+        return "OK";
+    }
 }
