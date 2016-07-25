@@ -77,6 +77,6 @@ public class FetcherController {
     public String fetcher58LoginSave(LoginModel loginModel) {
         Spider spider = CarLoginProcessor.getSpider(5, loginModel);
         spider.start();
-        return "loginInfo";
+        return "redirect:/fetcher/loginInfo";
     }
 }
