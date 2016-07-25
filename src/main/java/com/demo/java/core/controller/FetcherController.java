@@ -1,13 +1,17 @@
 package com.demo.java.core.controller;
 
+import com.demo.java.common.utils.ReflectUtils;
 import com.demo.java.core.entity.Regex;
 import com.demo.java.core.service.RegexService;
+import com.demo.java.webMagic.model.LoginModel;
+import com.demo.java.webMagic.processor.CarLoginProcessor;
 import com.demo.java.webMagic.processor.CarProcessor;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import us.codecraft.webmagic.Spider;
 
 import javax.annotation.Resource;
@@ -59,5 +63,20 @@ public class FetcherController {
         spider.stop();
         map.remove(regex.getTaskKey());
         return "停止爬取";
+    }
+
+    @RequestMapping("/loginInfo")
+    public ModelAndView fetcher58Login() {
+        ModelAndView modelAndView = new ModelAndView("loginInfo");
+        Map<String, String> map = ReflectUtils.getFieldMap(LoginModel.class);
+        modelAndView.addObject("map", map);
+        return modelAndView;
+    }
+
+    @RequestMapping("/loginInfo/save")
+    public String fetcher58LoginSave(LoginModel loginModel) {
+        Spider spider = CarLoginProcessor.getSpider(5, loginModel);
+        spider.start();
+        return "loginInfo";
     }
 }

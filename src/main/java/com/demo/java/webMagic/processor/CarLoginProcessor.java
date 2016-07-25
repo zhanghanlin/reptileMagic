@@ -1,6 +1,6 @@
 package com.demo.java.webMagic.processor;
 
-import com.demo.java.common.vo.LoginModel;
+import com.demo.java.webMagic.model.LoginModel;
 import com.demo.java.webMagic.pipeline.CarPipeline;
 import com.demo.java.webMagic.selenium.LoginFactory;
 import org.openqa.selenium.Cookie;
@@ -36,7 +36,6 @@ public class CarLoginProcessor implements PageProcessor {
     }
 
     public CarLoginProcessor(LoginModel model) {
-        System.out.println("CarProcessor(Regex regex) init");
         this.site = Site.me();
         this.site.setCharset(DEFAULT_ENCODE); //编码
         this.site.setRetryTimes(3);   //重试次数
@@ -49,11 +48,11 @@ public class CarLoginProcessor implements PageProcessor {
         }
     }
 
-    public static Spider getSpider(String url, int thread, LoginModel model) {
+    public static Spider getSpider(int thread, LoginModel model) {
         CarLoginProcessor carLoginProcessor = new CarLoginProcessor(model);
         Spider spider = Spider.create(carLoginProcessor);
         spider.addPipeline(new CarPipeline());
-        spider.addUrl(url);
+        spider.addUrl(model.getDataUrl());
         spider.thread(thread);
         return spider;
     }
@@ -61,7 +60,7 @@ public class CarLoginProcessor implements PageProcessor {
     public static void main(String[] args) {
         LoginModel model58 = new LoginModel();
         model58.setUrl("https://passport.58.com/login");
-        model58.setDomain(".58.com");
+        model58.setDomain("58.com");
         model58.setClickTab("login_tab_orig");
         model58.setForm("submitForm_new");
         model58.setUserNameInput("username_new");
@@ -72,14 +71,15 @@ public class CarLoginProcessor implements PageProcessor {
 
         LoginModel modelGJ = new LoginModel();
         modelGJ.setUrl("https://passport.ganji.com/login.php");
-        modelGJ.setDomain(".ganji.com");
+        modelGJ.setDomain("ganji.com");
         modelGJ.setForm("loginform");
         modelGJ.setUserNameInput("login_username");
         modelGJ.setPasswordInput("login_password");
         modelGJ.setUserName("username");
         modelGJ.setPassword("password");
+        modelGJ.setDataUrl("http://www.ganji.com/vip/my_post_list.php?source=archived_post");
 
-        Spider spider = CarLoginProcessor.getSpider("http://www.ganji.com/vip/my_post_list.php?source=archived_post", 5, modelGJ);
+        Spider spider = CarLoginProcessor.getSpider(5, modelGJ);
         spider.start();
     }
 }

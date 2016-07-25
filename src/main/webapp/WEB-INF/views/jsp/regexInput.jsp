@@ -108,7 +108,7 @@
                                     <div class="col-md-4">获取数据类型</div>
                                 </div>
                             </div>
-                            <c:forEach var="item" items="${data.entrySet()}" varStatus="status">
+                            <c:forEach var="item" items="${data}" varStatus="status">
                                 <div class="form-group col-data">
                                     <label for="${item.key}"
                                            class="col-sm-2 control-label">${item.value.get('name')}</label>
