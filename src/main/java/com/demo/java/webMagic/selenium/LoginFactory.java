@@ -30,8 +30,8 @@ public class LoginFactory {
             loginTab.click();
         }
         WebElement formEle = driver.findElement(By.id(model.getForm()));
-        WebElement usernameEle = driver.findElement(By.name(model.getUserNameInput()));
-        WebElement passwordEle = driver.findElement(By.name(model.getPasswordInput()));
+        WebElement usernameEle = driver.findElement(By.className(model.getUserNameInput()));
+        WebElement passwordEle = driver.findElement(By.className(model.getPasswordInput()));
         usernameEle.sendKeys(model.getUserName());
         passwordEle.sendKeys(model.getPassword());
         formEle.submit();
